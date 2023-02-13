@@ -1,16 +1,32 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <title>AR Demo</title>
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
 </head>
-<body>
-<a-scene embedded arjs>
-    <a-marker preset='hiro'>
-        <a-sphere position="0 0 0" radius="0.8" color="#2AA29F"></a-sphere>
+<body style="margin:0; overflow:hidden;">
+<a-scene >
+    <a-assets>
+        <video id="video"  loop="false" autoplay="false" src="2.mp4" preload="auto"></video>
+    </a-assets>
+
+    <a-marker preset="hiro">
+        <script>
+            window.addEventListener('click', function () {
+                document.querySelector('#video').play();
+            });
+        </script>
+
+        <a-video id="water" src="#video" rotation = '-90 0 0 ' height="2" width="2" position="0 2 2" autoplay="false"></a-video>
     </a-marker>
+
     <a-entity camera></a-entity>
 </a-scene>
 </body>
-
 </html>
