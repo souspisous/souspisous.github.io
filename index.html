@@ -4,14 +4,12 @@
     <title>AR Demo</title>
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
 </head>
+
 <body>
-<a-scene >
+<a-scene embedded arjs>
     <a-assets>
-        <video id="video"  loop="false" autoplay="false" src="2.mp4" preload="auto"></video>
+        <video id="video" loop="false" autoplay="false" src="2.mp4" preload="auto"></video>
     </a-assets>
 
     <a-marker preset="hiro">
@@ -21,10 +19,12 @@
             });
         </script>
 
-        <a-video id="water" src="#video" rotation = '-90 0 0 ' scale = '5 5 5'  autoplay="false"></a-video>
+        <a-video id="water" src="#video" position="0 0 0"
+                 scale="1 1 1" rotation="-90 0 0" autoplay="false"></a-video>
     </a-marker>
 
     <a-entity camera></a-entity>
 </a-scene>
 </body>
+</html>
 </html>
